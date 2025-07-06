@@ -21,7 +21,7 @@ type SystemConfig struct {
 // 用户
 type User struct {
 	ID       uint   `gorm:"primaryKey"`
-	Username string `gorm:"uniqueIndex;not null"`
+	Username string `gorm:"type:varchar(255);uniqueIndex;not null"`
 	Password string // 建议加密
 	Role     string // 可选值：admin/user
 	Setting  UserSetting
@@ -42,7 +42,7 @@ type UserSetting struct {
 // 模块配置（可选）
 type ModuleConfig struct {
 	ID          uint   `gorm:"primaryKey"`
-	Name        string `gorm:"uniqueIndex;not null"` // 模块名
+	Name        string `gorm:"type:varchar(255);uniqueIndex;not null"` // 模块名
 	Type        string
 	ConfigJSON  datatypes.JSON
 	Public      bool
